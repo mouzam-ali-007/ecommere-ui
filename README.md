@@ -1,7 +1,13 @@
-# ECOM-01
+# E-Commerce UI
 
 ## Project Description
-E-commerce website development.
+A responsive E-commerce website UI featuring product cards and a footer section.
 
 ## Features
-. Footer Section
+- Product listing
+- Product categories
+- Product cards
+- Responsive footer section
+
+## Branch
+ECOM-01
