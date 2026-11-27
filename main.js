@@ -1,58 +1,44 @@
+const filterButtons = document.querySelectorAll(".filter");
+const productCards = document.querySelectorAll(".product-card");
 
-const products = [
-    {
-        id: 1,
-        name: "Wireless Headphones",
-        price: 19.99,
-        image: "product1.jpg"
-    },
-    {
-        id: 2,
-        name: "Smart Watch",
-        price: 29.99,
-        image: "product2.jpg"
-    },
-    {
-        id: 3,
-        name: "Running Shoes",
-        price: 39.99,
-        image: "product3.jpg"
-    }
-];
+filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
 
-const productContainer = document.getElementById("product-container");
+        // Active button change
+        filterButtons.forEach((btn) => {
+            btn.classList.remove("active");
+        });
 
-products.forEach((product) => {
-    const productCard = document.createElement("div");
-    productCard.classList.add("product-card");
+        button.classList.add("active");
 
-    // Product Image
-    const productImage = document.createElement("img");
-    productImage.src = product.image;
-    productImage.alt = product.name;
+        // Selected category
+        const selectedCategory = button.textContent.trim().toLowerCase();
 
-    // Product Name
-    const productName = document.createElement("h3");
-    productName.textContent = product.name;
+        // Filter products
+        productCards.forEach((card) => {
+            const category = card.querySelector(".category")
+                .textContent.trim().toLowerCase();
 
-    // Product Price
-    const productPrice = document.createElement("p");
-    productPrice.textContent = `$${product.price.toFixed(2)}`;
-
-    // Add to Cart Button
-    const addButton = document.createElement("button");
-    addButton.textContent = "Add to Cart";
-    addButton.classList.add("add-cart");
-
-    addButton.addEventListener("click", () => {
-        alert(`${product.name} added to cart!`);
+            if (selectedCategory === "all" || category === selectedCategory) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        });
     });
+});
 
-    // Append elements
-    productCard.appendChild(productImage);
-    productCard.appendChild(productName);
-    productCard.appendChild(productPrice);
-    productCard.appendChild(addButton);
+// Add to Cart Functionality
 
-    productContainer.appendChild(productCard);
+const cartButtons = document.querySelectorAll(".add-cart");
+
+cartButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+
+        const productCard = button.closest(".product-card");
+        const productName = productCard.querySelector("h3").textContent;
+
+        alert(`${productName} added to cart successfully!`);
+
+    });
 });
