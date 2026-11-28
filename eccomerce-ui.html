@@ -640,8 +640,91 @@
     </div>
 </footer>
 
+<!-- Add to Cart Modal -->
+<div class="cart-modal-overlay" id="cartModal">
+
+    <div class="cart-modal">
+
+        <button class="close-modal" onclick="closeCartModal()">
+            &times;
+        </button>
+
+        <div class="success-icon">✓</div>
+
+        <h2>Added to Cart!</h2>
+
+        <p class="success-message">
+            Your product has been added successfully.
+        </p>
+
+        <div class="modal-product">
+
+            <img id="modalProductImage" src="" alt="Product">
+
+            <div class="modal-product-details">
+
+                <h3 id="modalProductName"></h3>
+
+                <p id="modalProductPrice"></p>
+                <p id="modalTotalPrice">Total: $0.00</p>
+
+                <div class="quantity-section">
+    <span>Quantity:</span>
+
+    <div class="quantity-control">
+        <button type="button" id="decreaseQuantity">−</button>
+
+        <span id="modalProductQuantity">1</span>
+
+        <button type="button" id="increaseQuantity">+</button>
+    </div>
+</div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-buttons">
+
+            <button class="continue-btn" onclick="closeCartModal()">
+                Continue Shopping
+            </button>
+
+            <button class="view-cart-btn" onclick="openShoppingCart()">
+                View Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Shopping Cart Modal -->
+<div class="cart-modal-overlay" id="shoppingCartModal">
+
+    <div class="cart-modal">
+
+        <button class="close-modal" onclick="closeShoppingCart()">
+            &times;
+        </button>
+
+        <h2>My Shopping Cart</h2>
+
+        <div id="cartItemsList"></div>
+
+        <h3 id="cartGrandTotal">Grand Total: $0.00</h3>
+
+        <button class="continue-btn" onclick="closeShoppingCart()">
+            Continue Shopping
+        </button>
+
+    </div>
+
+</div>
+
 <script src="main.js"></script>
-
 </body>
-
 </html>
+
+
